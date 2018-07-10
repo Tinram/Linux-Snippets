@@ -4,6 +4,18 @@
 #### Debian-based bias.
 
 
+----
+
+#### [Chmod Server Directory](#chmod)
+#### [Clear APT Cache](#apt)
+#### [Crashes](#crashes)
+#### [Remove Old Kernels](#kernels)
+#### [Search Codebase](#search)
+
+----
+
+
+<a id="chmod"></a>
 ## Chmod Server Directory
 
     find <dir>/ -type d -exec chmod 755 {} +
@@ -11,28 +23,31 @@
     find <dir>/ -type f -exec chmod 644 {} +
 
 
-## Clear APT cache
+<a id="apt"></a>
+## Clear APT Cache
 
 Clear `/var/cache/apt/archives/` archive files.
 
     sudo apt-get clean
 
 
+<a id="crashes"></a>
 ## Crashes
 
 ### Cinnamon restart
 
-    Alt + F2
+    Alt + F2                    # non-destructive action
     r
-    <Enter>                     # non-destructive action
+    <enter>
 
-    Ctrl + Alt + F1
-    sudo service mdm restart    # destructive = logout, apps lost
+    Ctrl + Alt + F1             # destructive = logout, apps lost
+    sudo service mdm restart
     Ctrl + Alt + F8
 
 ### updates crash
 
     apt check                   # show errors on last install
+
     dpkg --configure -a         # fix last install errors
     <reboot>
 
@@ -52,14 +67,16 @@ e.g. Firefox
     Ctrl + Alt + Backspace
 
 
+<a id="kernels"></a>
 ## Kernels - remove old
 
     dpkg --list | grep linux-image     # list
 
     sudo apt-get install byobu
-    sudo purge-old-kernels --keep 4    # one of many ways, but quite safe, proven
+    sudo purge-old-kernels --keep 4    # one of many ways, this one reasonably safe and proven
 
 
+<a id="search"></a>
 ## Search Codebase
 
 ### filename
@@ -68,7 +85,7 @@ e.g. Firefox
 
 ### text
 
-    grep -rn <cs_text> <dir>
+    grep -rni <text> <dir>
 
 ### files created/modified in last day
 
