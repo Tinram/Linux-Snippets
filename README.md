@@ -90,3 +90,8 @@ e.g. Firefox
 ### files created/modified in last day
 
     find <dir> -type f -mtime 0
+
+
+## License
+
+Licensed under the [MIT License](https://github.com/Tinram/Linux-Snippets/blob/master/LICENSE).
