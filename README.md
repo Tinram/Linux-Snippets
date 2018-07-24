@@ -1,7 +1,7 @@
 
 # Linux Snippets
 
-#### Debian-based bias.
+#### Maintenance snippets for Debian-based distros.
 
 
 ----
@@ -18,15 +18,15 @@
 <a id="chmod"></a>
 ## Chmod Server Directory
 
-    find <dir>/ -type d -exec chmod 755 {} +
+    find <dir> -type d -exec chmod 755 {} +
 
-    find <dir>/ -type f -exec chmod 644 {} +
+    find <dir> -type f -exec chmod 644 {} +
 
 
 <a id="apt"></a>
 ## Clear APT Cache
 
-Clear `/var/cache/apt/archives/` archive files.
+Clear `/var/cache/apt/archives/` updates files.
 
     sudo apt-get clean
 
@@ -38,7 +38,7 @@ Clear `/var/cache/apt/archives/` archive files.
 
     Alt + F2                    # non-destructive action
     r
-    <enter>
+    <Enter>
 
     Ctrl + Alt + F1             # destructive = logout, apps lost
     sudo service mdm restart
@@ -49,17 +49,17 @@ Clear `/var/cache/apt/archives/` archive files.
     apt check                   # show errors on last install
 
     dpkg --configure -a         # fix last install errors
-    <reboot>
+    [reboot]
 
 ### X
 
 #### program crash in X
 
-e.g. Firefox
+e.g. Firefox is perpetrator
 
     Ctrl + Alt + F1
     pgrep -lf firefox
-    kill <pid>
+    kill <PID>
     Ctrl + Alt + F8
 
 #### restart frozen X
@@ -72,8 +72,8 @@ e.g. Firefox
 
     dpkg --list | grep linux-image     # list
 
-    sudo apt-get install byobu
-    sudo purge-old-kernels --keep 4    # one of many ways, this one reasonably safe and proven
+    sudo apt-get install byobu         # install for first usage of following command
+    sudo purge-old-kernels --keep 4    # one of many ways, this one is reasonably safe and proven
 
 
 <a id="search"></a>
