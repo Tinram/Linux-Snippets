@@ -18,9 +18,10 @@
 <a id="chmod"></a>
 ## Chmod Server Directory
 
+```bash
     find <dir> -type d -exec chmod 755 {} +
-
     find <dir> -type f -exec chmod 644 {} +
+```
 
 
 <a id="apt"></a>
@@ -28,7 +29,9 @@
 
 Clear `/var/cache/apt/archives/` updates files.
 
+```bash
     sudo apt-get clean
+```
 
 
 <a id="crashes"></a>
@@ -36,20 +39,29 @@ Clear `/var/cache/apt/archives/` updates files.
 
 ### Cinnamon restart
 
-    Alt + F2                    # non-destructive action
-    r
-    <Enter>
+#### non-destructive action
 
-    Ctrl + Alt + F1             # destructive = logout, apps lost
+<kbd>Alt</kbd> + <kbd>F2</kbd>
+<kbd>r</kbd>
+<kbd>Enter</kbd>
+
+#### destructive action &ndash; logout, apps lost
+
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F1</kbd>
+
+```bash
     sudo service mdm restart
-    Ctrl + Alt + F8
+```
+
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
 
 ### updates crash
 
-    apt check                   # show errors on last install
-
-    dpkg --configure -a         # fix last install errors
+```bash
+    apt check                  # show errors on last install
+    dpkg --configure -a        # fix last install errors
     [reboot]
+```
 
 ### X
 
@@ -57,39 +69,54 @@ Clear `/var/cache/apt/archives/` updates files.
 
 e.g. Firefox is perpetrator
 
-    Ctrl + Alt + F1
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F1</kbd>
+
+```bash
     pgrep -lf firefox
     kill <PID>
-    Ctrl + Alt + F8
+```
+
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
 
 #### restart frozen X
 
-    Ctrl + Alt + Backspace
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Backspace</kbd>
 
 
 <a id="kernels"></a>
 ## Kernels - remove old
 
-    dpkg --list | grep linux-image     # list
+```bash
+    sudo apt-get install byobu                     # install for first usage of following command
+    sudo purge-old-kernels --keep 4
+```
 
-    sudo apt-get install byobu         # install for first usage of following command
-    sudo purge-old-kernels --keep 4    # one of many ways, this one is reasonably safe and proven
-
+```bash
+    dpkg --list | grep linux-image                 # list
+    sudo apt-get --purge remove linux-image-XXX    # from above list
+    sudo update-grub2
+```
 
 <a id="search"></a>
 ## Search Codebase
 
 ### filename
 
+```bash
     find <dir> -name <file>
+```
 
 ### text
 
+```bash
     grep -rni <text> <dir>
+```
 
 ### files created/modified in last day
 
+```bash
     find <dir> -type f -mtime 0
+```
 
 
 ## License
