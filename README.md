@@ -41,8 +41,8 @@ Clear `/var/cache/apt/archives/` updates files.
 
 #### non-destructive action
 
-<kbd>Alt</kbd> + <kbd>F2</kbd>
-<kbd>r</kbd>
+<kbd>Alt</kbd> + <kbd>F2</kbd>  
+<kbd>r</kbd>  
 <kbd>Enter</kbd>
 
 #### destructive action &ndash; logout, apps lost
@@ -55,6 +55,12 @@ Clear `/var/cache/apt/archives/` updates files.
 
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
 
+
+### kippered box
+
+<kbd>Alt</kbd> + <kbd>SysReq</kbd> + ( <kbd>R</kbd> <kbd>E</kbd> <kbd>I</kbd> <kbd>S</kbd> <kbd>U</kbd> <kbd>B</kbd> )
+
+
 ### updates crash
 
 ```bash
@@ -62,6 +68,7 @@ Clear `/var/cache/apt/archives/` updates files.
     dpkg --configure -a        # fix last install errors
     [reboot]
 ```
+
 
 ### X
 
