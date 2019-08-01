@@ -1,7 +1,7 @@
 
 # Linux Snippets
 
-#### Maintenance snippets for Debian-based distros.
+#### Quick-fix snippets for Debian-based distros.
 
 
 ----
