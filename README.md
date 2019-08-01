@@ -27,7 +27,7 @@
 <a id="apt"></a>
 ## Clear APT Cache
 
-Clear `/var/cache/apt/archives/` updates' .deb files.
+Clear `/var/cache/apt/archives/` updates' *.deb* files.
 
 ```bash
     sudo apt-get clean
@@ -50,7 +50,8 @@ Clear `/var/cache/apt/archives/` updates' .deb files.
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F1</kbd>
 
 ```bash
-    sudo service mdm restart
+    sudo service mdm restart     # Mint
+    sudo service gdm3 restart    # Gnome
 ```
 
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
@@ -100,7 +101,8 @@ e.g. Firefox is perpetrator
 
 ```bash
     dpkg --list | grep linux-image                   # list installed kernels
-    sudo apt-get --purge remove linux-image-<XXX>    # XXX = version number from above list
+	    [ii  linux-image-4.4.0-157-generic ...]
+    sudo apt-get --purge remove linux-image-<XXX>    # XXX = kernel version output from previous command output
     sudo update-grub2
 ```
 
