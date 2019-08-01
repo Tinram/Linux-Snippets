@@ -27,7 +27,7 @@
 <a id="apt"></a>
 ## Clear APT Cache
 
-Clear `/var/cache/apt/archives/` updates files.
+Clear `/var/cache/apt/archives/` updates' .deb files.
 
 ```bash
     sudo apt-get clean
@@ -56,12 +56,12 @@ Clear `/var/cache/apt/archives/` updates files.
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
 
 
-### kippered box
+### kippered OS
 
 <kbd>Alt</kbd> + <kbd>SysReq</kbd> + ( <kbd>R</kbd> <kbd>E</kbd> <kbd>I</kbd> <kbd>S</kbd> <kbd>U</kbd> <kbd>B</kbd> )
 
 
-### updates crash
+### crash during updates
 
 ```bash
     apt check                  # show errors on last install
@@ -80,7 +80,7 @@ e.g. Firefox is perpetrator
 
 ```bash
     pgrep -lf firefox
-    kill <PID>
+    kill <pid>
 ```
 
 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F8</kbd>
@@ -94,13 +94,13 @@ e.g. Firefox is perpetrator
 ## Kernels - remove old
 
 ```bash
-    sudo apt-get install byobu                     # install for first usage of following command
-    sudo purge-old-kernels --keep 4
+    sudo apt-get install byobu                       # install for first usage of following command
+    sudo purge-old-kernels --keep 3
 ```
 
 ```bash
-    dpkg --list | grep linux-image                 # list
-    sudo apt-get --purge remove linux-image-XXX    # from above list
+    dpkg --list | grep linux-image                   # list installed kernels
+    sudo apt-get --purge remove linux-image-<XXX>    # XXX = version number from above list
     sudo update-grub2
 ```
 
