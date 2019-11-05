@@ -119,7 +119,7 @@ e.g. Firefox is perpetrator
 
 ```bash
     grep -rni <text> <dir>
-	grep -rni --exclude=\*.{css,html} <text> <dir>
+    grep -rni --exclude=\*.{css,html} <text> <dir>
 ```
 
 ### files created/modified in last day
