@@ -27,7 +27,7 @@
 <a id="apt"></a>
 ## Clear APT Cache
 
-Clear `/var/cache/apt/archives/` updates' *.deb* files.
+Clear updates `/var/cache/apt/archives/` *.deb* files.
 
 ```bash
     sudo apt-get clean
@@ -101,7 +101,7 @@ e.g. Firefox is perpetrator
 
 ```bash
     dpkg --list | grep linux-image                   # list installed kernels
-	    [ii  linux-image-4.4.0-157-generic ...]
+        [ii  linux-image-4.4.0-157-generic ...]
     sudo apt-get --purge remove linux-image-<XXX>    # XXX = kernel version output from previous command output
     sudo update-grub2
 ```
@@ -113,6 +113,7 @@ e.g. Firefox is perpetrator
 
 ```bash
     find <dir> -name <file>
+    find <dir> -not -path '*vendor/*' -name <file>
 ```
 
 ### text
@@ -120,6 +121,7 @@ e.g. Firefox is perpetrator
 ```bash
     grep -rni <text> <dir>
     grep -rni --exclude=\*.{css,html} <text> <dir>
+    grep -rni --exclude-dir={vendor,.git} <text> <dir>
 ```
 
 ### files created/modified in last day
