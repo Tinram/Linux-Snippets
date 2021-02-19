@@ -93,7 +93,7 @@ e.g. Firefox is perpetrator
 
 
 <a id="kernels"></a>
-## Kernels - remove old
+## Kernels &ndash; remove old
 
 ```bash
     sudo apt-get install byobu                       # install for first usage of following command
@@ -109,12 +109,12 @@ e.g. Firefox is perpetrator
 
 
 <a id="lowram"></a>
-## Low RAM machines
+## Low RAM Machines
 
-4GB of RAM is not enough now for the demands of resource-hungry websites and applications, which results in memory being swapped to disk (if swapping is left enabled).
+4GB of RAM is not enough now for the demands of resource-hungry websites and applications, which results in memory being swapped to disk (with swapping enabled).
 
-HDD: swapping is far too slow
-SSD: swapping potentially creates excessive wear
++ HDD: swapping is far too slow
++ SSD: swapping potentially creates excessive wear
 
 Preserve usability: disable swapping and use *earlyoom* to quickly kill a runaway memory hog (faster than the kernel's OOM).
 
