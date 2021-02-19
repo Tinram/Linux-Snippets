@@ -9,6 +9,7 @@
 #### [Chmod Server Directory](#chmod)
 #### [Clear APT Cache](#apt)
 #### [Crashes](#crashes)
+#### [Low RAM](#lowram)
 #### [Remove Old Kernels](#kernels)
 #### [Search Codebase](#search)
 
@@ -105,6 +106,34 @@ e.g. Firefox is perpetrator
     sudo apt-get --purge remove linux-image-<XXX>    # XXX = kernel version output from previous command output
     sudo update-grub2
 ```
+
+
+<a id="lowram"></a>
+## Low RAM machines
+
+4GB of RAM is not enough now for the demands of resource-hungry websites and applications, which results in memory being swapped to disk (if swapping is left enabled).
+
+HDD: swapping is far too slow
+SSD: swapping potentially creates excessive wear
+
+Preserve usability: disable swapping and use *earlyoom* to quickly kill a runaway memory hog (faster than the kernel's OOM).
+
+```bash
+sudo apt install earlyoom
+
+sudo swapoff -a
+```
+
+Comment out the */etc/fstab* swap entry for swapoff permanence.
+
+
+```bash
+    free -m
+               total       used       free
+    ...
+    Swap:          0          0          0
+```
+
 
 <a id="search"></a>
 ## Search Codebase
