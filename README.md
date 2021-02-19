@@ -111,12 +111,12 @@ e.g. Firefox is perpetrator
 <a id="lowram"></a>
 ## Low RAM Machines
 
-4GB of RAM is not enough now for the demands of resource-hungry websites and applications, which results in memory being swapped to disk (with swapping enabled).
+4GB of RAM is not enough now for the demands of resource-hungry websites and applications, which results in memory being swapped to disk (when swapping enabled).
 
-+ HDD: swapping is far too slow
-+ SSD: swapping potentially creates excessive wear
++ HDD: swapping will grind the system to a halt
++ SSD: swapping potentially enacts excessive write wear
 
-Preserve usability: disable swapping and use *earlyoom* to quickly kill a runaway memory hog (faster than the kernel's OOM).
+Preserve usability: disable swapping and use *earlyoom* to instantly kill a runaway memory hog (faster than the kernel's OOM-killer).
 
 ```bash
 sudo apt install earlyoom
@@ -126,13 +126,22 @@ sudo swapoff -a
 
 Comment out the */etc/fstab* swap entry for swapoff permanence.
 
-
 ```bash
     free -m
                total       used       free
     ...
     Swap:          0          0          0
 ```
+
+Verify the OOM perp:
+
+```bash
+    grep oom /var/log/syslog # or: sudo journalctl -b | grep oom
+    Feb 19 14:59:03 martin-xyz earlyoom[852]: Out of memory! avail: 371 MiB < min: 380 MiB
+    Feb 19 14:59:04 martin-xyz earlyoom[852]: Killing process 4378 Web Content
+```
+
+Firefox and a heavy website again ...
 
 
 <a id="search"></a>
